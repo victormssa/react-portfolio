@@ -1,7 +1,7 @@
 @import "../../global.scss";
 .topbar{
     width: 100%;
-    height: 85px;
+    height: 70px;
     background-color: white;
     color: $mainColor;
     position: fixed;
@@ -21,7 +21,7 @@
 
             .logo{
                 font-size: 40px;
-                font-weight: 700;
+                font-weight: 600;
                 text-decoration: none;
                 color: inherit;
                 margin-right: 40px;
@@ -38,8 +38,8 @@
                 }
 
                 span{
-                    font-style: 15px;
-                    font-weight: 500;
+                    font-style: 20px;
+                    font-weight: 600;
                 }
             }
         }
@@ -47,19 +47,21 @@
         .right{
             
             .hamburguer{
-                width: 32px;
-                height: 26px;
+                width: 34px;
+                height: 28px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                
                 cursor: pointer;
 
                 span{
                     width: 100%;
+                    height: 100%;
                     height: 4px;
                     background-color: $mainColor;
                     transform-origin: left;
-                    transition: all 2s ease;
+                    transition: all 0s ease;
                 }
             }
         }
