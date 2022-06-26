@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PortfolioList from "../portfolioList/PortfolioList";
 import "./portfolio.scss";
+import { 
+  featuredPortfolio,
+  webPortfolio,
+  designPortfolio,
+  bookPortfolio
+} from "../../data";
 
 export default function Portfolio() {
   
     const [selected, setSelected] = useState("featured");
+    const [data, setData] = useState([]);
     const list = [
       {
         id: "featured",
@@ -19,10 +26,30 @@ export default function Portfolio() {
         title: "Design",
       },
       {
-        id: "writer",
+        id: "book",
         title: "Book",
       },
     ];
+
+    useEffect(() => {
+      switch(selected){
+        case "featured":
+          setData(featuredPortfolio);
+          break;
+        case "webapp":
+          setData(webPortfolio);
+          break;
+        case "design":
+          setData(designPortfolio);
+          break;
+        case "book":
+          setData(bookPortfolio);
+          break;
+        default:
+          setData(featuredPortfolio);
+
+      }
+    },[selected]);
 
     return(
     <div className="portfolio" id="portfolio">
@@ -36,30 +63,12 @@ export default function Portfolio() {
         ))}
       </ul>
       <div className="container">
+        {data.map((d) => (
         <div className="item">
-          <img src="" alt="" />
-          <h3>In Development</h3>
+          <img src={d.img} alt="" />
+          <h3>{d.title}</h3>
         </div>
-        <div className="item">
-          <img src="" alt="" />
-          <h3>In Development</h3>
-        </div>
-        <div className="item">
-          <img src="" alt="" />
-          <h3>In Development</h3>
-        </div>
-        <div className="item">
-          <img src="" alt="" />
-          <h3>In Development</h3>
-        </div>
-        <div className="item">
-          <img src="" alt="" />
-          <h3>In Development</h3>
-        </div>
-        <div className="item">
-          <img src="" alt="" />
-          <h3>In Development</h3>
-        </div>
+        ))}
       </div>
       
     </div>
